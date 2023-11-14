@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>LiveHouseNavi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
+        <meta name="description" content="ディスクリプションを入力">
+        <meta name="keywords" content="サイトキーワードを,で区切って入力">
+    </head>
+
+<body>
+    <header>
+        
+    </header>
+<main>
+<div class="parent">
+<h1>LiveHouseNavi</h1>
+<form method="post" action="/search">
+<div class="child">
+    <input type="text" placeholder="キーワード" name="keyword" class="in" >
+    <input type="submit" value="送信" class="button"> 
+</form>
+</div>
+
+</div>
+</main>
+    <footer>
+
+    </footer>
+</body>

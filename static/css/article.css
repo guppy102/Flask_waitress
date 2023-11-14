@@ -1,0 +1,77 @@
+.title h1 {
+    text-align: center;
+    background-color: rgb(41,118,157);
+    color: aliceblue;
+}
+
+header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+article {
+    background-color: aliceblue;
+}
+
+section {
+    background-color: aliceblue;
+}
+
+body {
+    background-color: rgb(139,196,224);
+}
+
+main {
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+header {
+    background-color: rgb(28, 79, 105);
+    text-align: center;
+    color: aliceblue;
+}
+
+.waku {
+    background-color: black;
+}
+
+.display {
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    height: 200px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin: 0 auto;
+}
+
+.display::-webkit-scrollbar {
+    display: none;
+}
+
+.display img {
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start;
+}
+
+.basic_info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+.info1, .info2 {
+    flex-basis: 45%;
+    text-align: left;
+    margin: 5px;
+}
+
+@media (max-width: 600px) {
+    .basic_info, .info1, .info2 {
+        flex-basis: 100%;
+    }
+}

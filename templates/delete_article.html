@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>記事削除</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_article.css') }}"> <!-- スタイルシートのリンク -->
+</head>
+<body>
+    <header>
+        <h1>記事削除</h1>
+    </header>
+    <main>
+        <p>以下の記事を削除しますか？</p>
+        <p><strong>タイトル:</strong> {{ article.title }}</p>
+        <p><strong>内容:</strong> {{ article.description }}</p>
+        
+        <form method="post" action="{{ url_for('delete_article', article_id=article.id) }}">
+            <input type="submit" value="削除" class="delete-button">
+        </form>
+        
+        <br>
+        <a href="{{ url_for('list_articles') }}" class="back-button">戻る</a>
+    </main>
+</body>
+</html>

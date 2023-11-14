@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(139, 196, 224); /* 背景色 */
+    font-family: Arial, sans-serif; /* フォントファミリー */
+    color: #333; /* テキストの色 */
+    text-align: center; /* テキストを中央揃えに */
+    padding-top: 100px; /* 上部の余白 */
+}
+
+h2 {
+    color: #fff; /* タイトルの色 */
+    margin-bottom: 20px; /* タイトル下の余白 */
+}
+
+form {
+    background-color: aliceblue; /* フォームの背景色 */
+    padding: 20px; /* フォーム内の余白 */
+    border-radius: 10px; /* 角を丸く */
+    display: inline-block; /* フォームをインラインブロックとして表示 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+}
+
+label {
+    margin-right: 10px; /* ラベルの右余白 */
+}
+
+input[type="text"],
+input[type="password"] {
+    margin-bottom: 15px; /* 入力欄下の余白 */
+    border-radius: 5px; /* 入力欄の角を丸く */
+    border: 1px solid #ddd; /* 入力欄の枠線 */
+    padding: 8px; /* 入力欄内の余白 */
+}
+
+button {
+    background-color: #000000; /* ボタンの背景色 */
+    color: #ffffff; /* ボタンの文字色 */
+    padding: 10px 15px; /* ボタン内の余白 */
+    border: none; /* ボタンの枠線をなしに */
+    border-radius: 5px; /* ボタンの角を丸く */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s; /* 背景色の変化を滑らかに */
+}
+
+button:hover {
+    background-color: #333; /* ホバー時のボタンの背景色 */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>記事一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article_list.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <h1>記事一覧</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('create_articles') }}">記事を作成する</a>
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>記事ID</th>
+                    <th>タイトル</th>
+                    <th>住所</th>
+                    <th>画像</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.adress }}</td>
+                    <td>
+                        <img src="{{ url_for('static', filename=article.picture1.replace('\\', '/').replace('./static', ''))}}" alt="記事画像" style="width: 100px; height: auto;">
+                    </td>
+                    <td>
+                        <a href="{{ url_for('update_article', article_id=article.id) }}">編集</a>
+                        <a href="{{ url_for('delete_article', article_id=article.id) }}">削除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <!-- フッターの内容 -->
+    </footer>
+</body>
+</html>

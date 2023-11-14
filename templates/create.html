@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+    <title>記事作成</title>
+</head>
+<body>
+    <h1>記事作成</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">タイトル：</label>
+        <input type="text" name="title" required><br>
+
+        <label for="adress">住所：</label>
+        <input type="text" name="adress" required><br>
+
+        <label for="description">説明：</label>
+        <textarea name="description" rows="4" required></textarea><br>
+
+        <!-- 説明フィールド -->
+{% for i in range(1, 6) %}
+<label for="description{{ i }}">説明 {{ i }}：</label>
+<textarea name="description{{ i }}" rows="4"></textarea><br>
+{% endfor %}
+
+
+        <!-- 追加のフィールド -->
+        <label for="rentaltime">ホールレンタル：</label>
+        <input type="text" name="rentaltime"><br>
+
+        <label for="bukkinngnorma">ブッキングノルマ：</label>
+        <input type="text" name="bukkinngnorma"><br>
+
+        <label for="janre">得意なジャンル：</label>
+        <input type="text" name="janre"><br>
+
+        <!--追加 -->
+        <label for="hall_rental">レンタルタイム：</label>
+        <input type="text" name="hallrental"><br>
+        
+        <label for="booking_live">ブッキングライブ：</label>
+        <input type="text" name="booking_live"><br>
+        
+        <label for="one_drink_price">ワンドリンク価格：</label>
+        <input type="text" name="one_drink_price"><br>
+        
+        <label for="secondary_use">二次会利用：</label>
+        <input type="text" name="secondary_use"><br>
+        
+        <label for="streaming_live_available">ストリーミングライブ利用可能：</label>
+        <input type="text" name="streaming_live_available"><br>
+
+        <!-- 画像アップロード用のフィールド（最大10枚） -->
+        <!-- 画像アップロード用のフィールド -->
+{% for i in range(1, 11) %}
+<label for="picture{{ i }}">画像 {{ i }}：</label>
+<input type="file" name="picture{{ i }}"><br>
+{% endfor %}
+
+
+        <input type="submit" value="記事を作成">
+        <a href="{{ url_for('list_articles') }}" class="back-button">戻る</a>
+    </form>
+
+</body>
+</html>

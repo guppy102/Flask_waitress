@@ -1,0 +1,42 @@
+
+/* スタイルシート (index.css) */
+body {
+    background-color:rgb(139,196,224);
+    max-width: 600px; /* ページの最大横幅を設定 */
+    margin: 0;
+    padding: 0;
+}
+.parent {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.parent h1 {
+    font-size: 30pt;
+}
+
+.in {
+    font-size: 15pt;
+}
+.button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 13pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 11px;   /* 余白       */
+    background    : #000000;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #000000;    /* 枠の指定 */
+}
+.button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000000;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}

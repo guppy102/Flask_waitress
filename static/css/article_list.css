@@ -1,0 +1,126 @@
+/* 基本的なリセットとフォント設定 */
+body, h1, nav, table {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ヘッダー部分のスタイル */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* ナビゲーションリンクのスタイル */
+nav {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: right;
+}
+
+nav a {
+    color: #3498db;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #2980b9;
+    color: white;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+td img {
+    width: 100px;
+    height: auto;
+}
+
+/* 操作リンクのスタイル */
+td a {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 4px 8px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+td a:hover {
+    background-color: #2980b9;
+}
+
+/* 奇数行と偶数行の背景色 */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* フッターのスタイル */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: left;
+        font-weight: bold;
+    }
+}

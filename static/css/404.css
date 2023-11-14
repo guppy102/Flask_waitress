@@ -1,0 +1,25 @@
+.container-404 {
+    background-color: aliceblue;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-404 h1 {
+    color: rgb(41,118,157);
+    margin-bottom: 20px;
+}
+
+.container-404 p {
+    margin-bottom: 30px;
+}
+
+.container-404 a {
+    background-color: rgb(28, 79, 105);
+    color: aliceblue;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>sarch</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/sarch.css') }}">
+        <meta name="description" content="ディスクリプションを入力">
+        <meta name="keywords" content="サイトキーワードを,で区切って入力">
+    </head>
+
+<body>
+    <header>
+        <a href="{{url_for('index')}}"><h1>LiveHouseNavi</h1></a>
+    </header>
+<main>
+<div class="search">
+    <form method="post">
+        <input type="text" placeholder="キーワード" name="keyword" class="textbox">
+        <input type="submit" class="button">
+    </form>
+</div>
+{%for article in matching_articles%}
+<div class="explain">
+        <a href="{{url_for('display',article_id=article.id)}}"><h1>{{article.title}}</h1></a>
+        
+        <div class="waku">
+            <div class="display">
+                {% for i in range(1, 11) %}
+                    {% if article['picture' ~ i] %}
+                        <img src="{{ url_for('static', filename=article['picture' ~ i].replace('\\', '/').replace('./static', '')) }}" alt="Picture {{ i }}">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>    
+<div class="adress"><p>住所：{{ article.adress }}</p>
+        <div class="basic_info">
+            <section class="info1">
+                
+                <p>ホールレンタル</p>
+                <p>ブッキングノルマ</p>
+                <p>得意なジャンル</p>
+            </section>
+            <section class="info2">
+                <p>{{ article.rentaltime }}</p>
+                <p>{{ article.bukkinngnorma }}</p>
+                <p>{{ article.janre }}</p>
+            </section>
+        </div>
+    </div>
+</div>
+{%endfor%}
+</main>
+    <footer>
+
+    </footer>
+</body>

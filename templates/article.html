@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{article.title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
+        <meta name="description" content="ディスクリプションを入力">
+        <meta name="keywords" content="サイトキーワードを,で区切って入力">
+    </head>
+
+<body>
+<header>
+<a href="{{url_for('index')}}"><h1>LiveHouseNavi</h1></a>
+</header>
+<main>
+<div class="test1">
+<div class="waku">
+    <div class="display">
+        {% for i in range(1, 11) %}
+            {% if article['picture' ~ i] %}
+                <img src="{{ url_for('static', filename=article['picture' ~ i].replace('\\', '/').replace('./static', '')) }}" alt="Picture {{ i }}">
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+</div>
+<div class="title">
+        <h1>基本情報</h1>
+</div>
+<div class="basic_info">
+    <section class="info1">
+        <p>住所</p>
+        <p>ホールレンタル</p>
+        <p>得意なジャンル</p>
+        <p>ONEDRINK</p>
+        <p>ブッキングノルマ</p>
+        <p>二次利用等</p>
+        <p>(宴会、食事会)</p>
+        <p>ストリーミングライブ</p>
+    </section>
+    <section class="info2">
+        <p>{{ article.adress }}</p>
+        <p>{{ article.hall_rental_details }}</p>
+        <p>{{ article.janre }}</p>
+        <p>{{ article.one_drink_price }}</p>
+        <p>{{ article.bukkinngnorma }}</p>
+        <p>{{ article.booking_live }}</p>
+        <p>{{ article.secondary_use }}</p>
+        <p>{{ article.streaming_live_available }}</p>
+    </section>
+</div>
+<div class="title">
+    <h1>ライブハウスの説明</h1>
+</div>
+    <article>
+        <p>{{article.description}}</p>
+    </article>
+<div class="title">
+    <h1>有名アーティスト</h1>
+</div>
+    <article>
+        <p>{{article.description1}}</p>
+    </article>
+<div class="title">
+    <h1>テスト１</h1>
+</div>
+    <article>
+        <p>{{article.description2}}</p>
+    </article>
+
+<div class="title">
+    <h1>テスト２</h1>
+</div>
+    <article>
+        <p>{{article.description3}}</p>
+    </article>
+
+<div class="title">
+    <h1>テスト３</h1>
+</div>
+    <article>
+        <p>{{article.description4}}</p>
+    </article>
+
+<div class="title">
+    <h1>テスト４</h1>
+</div>
+    <article>
+        <p>{{article.description5}}</p>
+    </article>    
+
+</main>
+<footer>
+
+</footer>
+</body>
+</html>
+
