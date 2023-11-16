@@ -3,7 +3,7 @@
 
 class Config(object):
     
-    DEBUG=False
+    DEBUG=True
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     

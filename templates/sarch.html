@@ -20,6 +20,15 @@
         <input type="submit" class="button">
     </form>
 </div>
+{% if paginated_articles %}
+    {% if paginated_articles.has_prev %}
+        <a href="{{ url_for('search_article', page=paginated_articles.prev_num,keyword=keyword) }}">前のページ</a>
+    {% endif %}
+    {% if paginated_articles.has_next %}
+        <a href="{{ url_for('search_article', page=paginated_articles.next_num,keyword=keyword) }}">次のページ</a>
+    {% endif %}
+{% endif %}
+
 {%for article in matching_articles%}
 <div class="explain">
         <a href="{{url_for('display',article_id=article.id)}}"><h1>{{article.title}}</h1></a>
@@ -50,6 +59,9 @@
     </div>
 </div>
 {%endfor%}
+
+
+
 </main>
     <footer>
 

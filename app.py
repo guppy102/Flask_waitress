@@ -1,7 +1,7 @@
 import os
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import Flask, render_template, request, redirect, url_for, after_this_request
+from flask import Flask, render_template, request, redirect, url_for, after_this_request,session
 from flask_login import LoginManager, UserMixin, login_user,login_required,logout_user
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
@@ -181,6 +181,7 @@ def create_articles():
 @app.route("/articles/update/<int:article_id>", methods=["GET", "POST"])
 @login_required
 def update_article(article_id):
+    
     article = Article.query.get_or_404(article_id)
 
     if request.method == "POST":
@@ -263,15 +264,22 @@ def display(article_id):
     
 @app.route('/search', methods=['GET', 'POST'])
 def search_article():
-    matching_articles = []  # 部分一致した記事のリストを格納する変数を用意
-    if request.method == "POST":
-        # キーワードがフォームから送信されたかを確認
-        if "keyword" in request.form:
-            keyword = request.form["keyword"]
-            if keyword:
-                keyword_list = keyword.split()
+    page = request.args.get('page',1 ,type=int)
+    per_page = 1
+    matching_articles = []
+    paginated_articles = None
+    
 
-                for keyword in keyword_list:
+    if request.method == "POST":
+        keyword = request.form.get("keyword", "")
+        session['keyword'] = keyword  # キーワードをセッションに保存
+    else:
+        keyword = session.get('keyword', "")  # セッションからキーワードを取得
+
+    if keyword:
+        keyword_list = keyword.split()
+        query = db.session.query(Article)
+        for kw in keyword_list:
                     # キーワードを含む記事を検索してリストに追加
                     query = db.session.query(Article).filter(or_(
                         Article.title.contains(keyword),
@@ -293,14 +301,13 @@ def search_article():
                         Article.streaming_live_available.contains(keyword)
                         
                     ))
-                    articles = query.all()
-                    matching_articles.extend(articles)
+                    paginated_articles = query.paginate(page=page, per_page=per_page, error_out=False)
+                    matching_articles = paginated_articles.items
 
-    # POSTリクエスト時または検索結果がある場合に結果を表示
-    if request.method == "POST" or matching_articles:
-        for article in matching_articles:
-            print(article.id, article.title, article.description)
-        return render_template("sarch.html", matching_articles=matching_articles)
+
+
+        return render_template("sarch.html", matching_articles=matching_articles,
+                            page=page,paginated_articles=paginated_articles,keyword=keyword)
 
     # GETリクエストでフォームを表示
     return render_template("sarch.html")
@@ -319,10 +326,10 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    #app.run('0.0.0.0', port=5000)
+    app.run('0.0.0.0', port=5000)
     
     #app.run('0.0.0.0',port=5000)
-    serve(app, host='0.0.0.0', port=5000,threads=8)
+    #serve(app, host='0.0.0.0', port=5000,threads=8)
     
     #本番
     #serve(app, host='0.0.0.0', port=80)
