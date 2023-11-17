@@ -15,15 +15,15 @@
 
     
     <label for="title">タイトル</label>
-    <input type="text" name="title" id="title" value="{{ article.title }}" required>
+    <input type="text" name="title" id="title" value="{{ article.title }}" >
     <br><br>
 
     <label for="adress">アドレス</label>
-    <input type="text" name="adress" id="adress" value="{{ article.adress }}" required>
+    <input type="text" name="adress" id="adress" value="{{ article.adress }}" >
     <br><br>
 
     <label for="description">内容</label>
-    <textarea name="description" id="description" cols="50" rows="5" required>{{ article.description }}</textarea>
+    <textarea name="description" id="description" cols="50" rows="5" >{{ article.description }}</textarea>
     <br><br>
     <!-- 説明の繰り返し部分をforループで生成 -->
     {% for num in range(1, 6) %}
@@ -33,39 +33,39 @@
     {% endfor %}
 
         <label for="rentaltime">ホールレンタル：</label>
-<textarea name="rentaltime" id="rentaltime" cols="50" rows="5" required>{{ article.rentaltime }}</textarea>
+<textarea name="rentaltime" id="rentaltime" cols="50" rows="5">{{ article.rentaltime }}</textarea>
 <br><br>
 
 <label for="bukkinngnorma">ブッキングノルマ：</label>
-<textarea name="bukkinngnorma" id="bukkinngnorma" cols="50" rows="5" required>{{ article.bukkinngnorma }}</textarea>
+<textarea name="bukkinngnorma" id="bukkinngnorma" cols="50" rows="5">{{ article.bukkinngnorma }}</textarea>
 <br><br>
 
 <label for="janre">得意なジャンル：</label>
-<textarea name="janre" id="janre" cols="50" rows="5" required>{{ article.janre }}</textarea>
+<textarea name="janre" id="janre" cols="50" rows="5" >{{ article.janre }}</textarea>
 <br><br>
 
 <label for="hall_rental">レンタルタイム：</label>
-<textarea name="hall_rental" id="hall_rental" cols="50" rows="5" required>{{ article.hall_rental_details }}</textarea>
+<textarea name="hall_rental" id="hall_rental" cols="50" rows="5" >{{ article.hall_rental_details }}</textarea>
 <br><br>
 
 <label for="booking_live">ブッキングライブ：</label>
-<textarea name="booking_live" id="booking_live" cols="50" rows="5" required>{{ article.booking_live }}</textarea>
+<textarea name="booking_live" id="booking_live" cols="50" rows="5" >{{ article.booking_live }}</textarea>
 <br><br>
 
 <label for="one_drink_price">ワンドリンク価格：</label>
-<textarea name="one_drink_price" id="one_drink_price" cols="50" rows="5" required>{{ article.one_drink_price }}</textarea>
+<textarea name="one_drink_price" id="one_drink_price" cols="50" rows="5" >{{ article.one_drink_price }}</textarea>
 <br><br>
 
 <label for="secondary_use">二次会利用：</label>
-<textarea name="secondary_use" id="secondary_use" cols="50" rows="5" required>{{ article.secondary_use }}</textarea>
+<textarea name="secondary_use" id="secondary_use" cols="50" rows="5" >{{ article.secondary_use }}</textarea>
 <br><br>
 
 <label for="streaming_live_available">ストリーミングライブ利用可能：</label>
-<textarea name="streaming_live_available" id="streaming_live_available" cols="50" rows="5" required>{{ article.streaming_live_available }}</textarea>
+<textarea name="streaming_live_available" id="streaming_live_available" cols="50" rows="5" >{{ article.streaming_live_available }}</textarea>
 <br><br>
 
 <label for="hall_rental_details">ストリーミングライブ利用可能：</label>
-<textarea name="hall_rental_details" id="hall_rental_details" cols="50" rows="5" required>{{ article.hall_rental_details }}</textarea>
+<textarea name="hall_rental_details" id="hall_rental_details" cols="50" rows="5" >{{ article.hall_rental_details }}</textarea>
 <br><br>
 
 

@@ -265,10 +265,17 @@ def display(article_id):
 @app.route('/search', methods=['GET', 'POST'])
 def search_article():
     page = request.args.get('page',1 ,type=int)
-    per_page = 1
+    
     matching_articles = []
     paginated_articles = None
     
+    if 'per_page' in request.args:
+        per_page = request.args.get('per_page',10,type=int)
+        session['per_page'] = per_page
+    else:
+        per_page = session.get('per_page',10)
+        
+        
 
     if request.method == "POST":
         keyword = request.form.get("keyword", "")

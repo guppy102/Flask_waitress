@@ -19,6 +19,15 @@
         <input type="text" placeholder="キーワード" name="keyword" class="textbox">
         <input type="submit" class="button">
     </form>
+
+    <form method="get" action="{{ url_for('search_article')}}">
+        <select name="per_page">
+            <option value="10">10件</option>
+            <option value="30">30件</option>
+            <option value="100">100件</option>
+        </select>
+        <input type="submit" value="変更">
+    </form>
 </div>
 {% if paginated_articles %}
     {% if paginated_articles.has_prev %}
